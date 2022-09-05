@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-rose">
+        <div class="card-icon">
+          <i class="material-icons">assignment</i>
+        </div>
+        <h4 class="card-title">
+          User List
+          <div class="col-md-9 pull-right">
+            <a
+              routerLink="/users/create"
+              class="btn btn-fill btn-rose pull-right"
+            >
+              <i class="material-icons">add</i>
+              Add
+              <div class="ripple-container"></div
+            ></a>
+          </div>
+        </h4>
+      </div>
+      <div class="card-body table-full-width table-hover">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.role.name }}</td>
+                <td class="td-actions">
+                  <!-- <button type="button" rel="tooltip" class="btn btn-info">
+                        <i class="material-icons">person</i>
+                      </button> -->
+                  <a
+                    type="button"
+                    [routerLink]="['/users', user.id, 'edit']"
+                    rel="tooltip"
+                    class="btn btn-info"
+                  >
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <button
+                    type="button"
+                    rel="tooltip"
+                    (click)="delete(user.id)"
+                    class="btn btn-danger"
+                  >
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer ml-auto mr-auto">
+        <nav aria-label="Page navigation ">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true"
+                  ><i class="fa fa-angle-double-left" aria-hidden="true"></i
+                ></span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#link">1</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#link">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#link">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" aria-label="Next">
+                <span aria-hidden="true"
+                  ><i class="fa fa-angle-double-right" aria-hidden="true"></i
+                ></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

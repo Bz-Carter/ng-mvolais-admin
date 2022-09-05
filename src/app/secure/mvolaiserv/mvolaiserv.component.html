@@ -1,0 +1,65 @@
+<h3>
+    Services
+    <div class="col-md-9 pull-right">
+      <a
+        routerLink="/services/create"
+        class="btn btn-fill btn-rose pull-right"
+      >
+        <i class="material-icons">add</i>
+        Ajouter
+        <div class="ripple-container"></div>
+      </a>
+    </div>
+  </h3>
+  <br /><br /><br />
+  <div class="row">
+    <div class="col-md-4" *ngFor="let service of services">
+      <div class="card card-product">
+        <div class="card-header card-header-image" data-header-animation="true">
+          <a>
+            <img class="img" [src]="service.image" />
+          </a>
+        </div>
+        <div class="card-body">
+          <div class="card-actions text-center">
+            <button type="button" class="btn btn-danger btn-link fix-broken-card">
+              <i class="material-icons">build</i> Fix Header!
+            </button>
+            <button
+              type="button"
+              class="btn btn-default btn-link"
+              rel="tooltip"
+              data-placement="bottom"
+              title="View"
+            >
+              <i class="material-icons">art_track</i>
+            </button>
+            <a
+              type="button"
+              [routerLink]="['/service/', service.id, 'edit']"
+              class="btn btn-success btn-link"
+              rel="tooltip"
+              data-placement="bottom"
+              title="Modifier"
+            >
+              <i class="material-icons">edit</i>
+            </a>
+            <button
+              (click)="delete(service.id)"
+              type="button"
+              class="btn btn-danger btn-link"
+              rel="tooltip"
+              data-placement="bottom"
+              title="Supprimer"
+            >
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+          <h4 class="card-title">
+            <a>{{ service.name }}</a>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,116 @@
+<div class="row">
+    <div class="col-md-12">
+      <form
+        [formGroup]="form"
+        (submit)="submit()"
+        id="TypeValidation"
+        class="form-horizontal"
+      >
+        <div class="card">
+          <div class="card-header card-header-rose card-header-text">
+            <div class="card-text">
+              <h4 class="card-title">Modification de produit</h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 ml-auto mr-auto">
+                <div
+                  class="fileinput fileinput-new text-center"
+                  data-provides="fileinput"
+                >
+                  <div class="fileinput-new thumbnail">
+                    <img [src]="product.image" alt="..." />
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                  <div>
+                    <span class="btn btn-rose btn-round btn-file">
+                      <span class="fileinput-new">Select image</span>
+                      <span class="fileinput-exists">Change</span>
+                      <input
+                        class="form-control"
+                        formControlName="image"
+                        type="file"
+                        name="image"
+                        (change)="upload($event.target.files)"
+                      />
+                    </span>
+                    <a
+                      href="#pablo"
+                      class="btn btn-danger btn-round fileinput-exists"
+                      data-dismiss="fileinput"
+                      ><i class="fa fa-times"></i> Remove</a
+                    >
+                  </div>
+                  <h4 class="title">Image Cover</h4>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Title</label>
+              <div class="col-sm-9">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    name="title"
+                    type="text"
+                    formControlName="title"
+                    required="true"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Category </label>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select
+                    class="selectpicker"
+                    name="category"
+                    formControlName="category"
+                    data-style="select-with-transition"
+                    required
+                  >
+                    <option
+                      *ngFor="let category of categories"
+                      [ngValue]="category.id"
+                    >
+                      {{ category.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row" hidden>
+              <label class="col-sm-2 col-form-label">Prix</label>
+              <div class="col-sm-9">
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    name="price"
+                    type="text"
+                    formControlName="price"
+                    required="true"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-2 col-form-label">Description</label>
+              <div class="col-sm-9">
+                <div class="form-group">
+                 <angular-editor formControlName="description" [config]="editorConfig"></angular-editor>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer ml-auto mr-auto">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-rose">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

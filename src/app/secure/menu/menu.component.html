@@ -1,0 +1,103 @@
+<div class="sidebar-wrapper">
+    <div class="user">
+      <div class="photo">
+        <img src="../assets/img/faces/avatar.jpg" />
+      </div>
+      <div class="user-info">
+        <a data-toggle="collapse" routerLink="/profile"  class="username">
+          <span>
+           {{user?.first_name}} {{user?.last_name}}
+          </span>
+        </a>
+      </div>
+    </div>
+    <ul class="nav">
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/dashboard']">
+          <i class="material-icons">dashboard</i>
+          <p> Dashboard </p>
+        </a>
+      </li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/services']">
+          <i class="material-icons">add_business</i>
+          <p> Services </p>
+        </a>
+      </li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/categories']">
+          <i class="material-icons">attachment</i>
+          <p> Category </p>
+        </a>
+      </li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/products']">
+          <i class="material-icons">archive</i>
+          <p> Produits </p>
+        </a>
+      </li>
+      <!-- <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/portfolios']">
+          <i class="material-icons">work</i>
+          <p> Portfolio </p>
+        </a>
+      </li> -->
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/partners']">
+          <i class="material-icons">group_work</i>
+          <p> Partenaires </p>
+        </a>
+      </li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
+          <i class="material-icons">article</i>
+          <p> Blog
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="pagesExamples">
+          <ul class="nav">
+            <li class="nav-item " routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/tags']">
+                <span class="sidebar-mini"> m </span>
+                <span class="sidebar-normal"> mots clés </span>
+              </a>
+            </li>
+            <li class="nav-item " routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/articles']">
+                <span class="sidebar-mini"> a </span>
+                <span class="sidebar-normal"> articles </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/galleries/photos']">
+          <i class="material-icons">image</i>
+          <p> Photos </p>
+        </a>
+      </li>
+     
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/users']">
+          <i class="material-icons">groups</i>
+          <p> Users </p>
+        </a>
+      </li>
+
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/roles']">
+          <i class="material-icons">rule</i>
+          <p> Roles </p>
+        </a>
+      </li>
+
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/settings']">
+          <i class="material-icons">settings</i>
+          <p> Settings </p>
+        </a>
+      </li>
+    </ul>
+  </div>

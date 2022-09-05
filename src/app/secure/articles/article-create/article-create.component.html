@@ -1,0 +1,147 @@
+<div class="row">
+  <div class="col-md-12">
+    <form
+      [formGroup]="form"
+      (submit)="submit()"
+      id="TypeValidation"
+      class="form-horizontal"
+    >
+      <div class="card">
+        <div class="card-header card-header-rose card-header-text">
+          <div class="card-text">
+            <h4 class="card-title">New Article</h4>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 ml-auto mr-auto">
+              <div
+                class="fileinput fileinput-new text-center"
+                data-provides="fileinput"
+              >
+                <div class="fileinput-new thumbnail">
+                  <img src="../../assets/img/image_placeholder.jpg" alt="..." />
+                </div>
+                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                <div>
+                  <span class="btn btn-rose btn-round btn-file">
+                    <span class="fileinput-new">Select image</span>
+                    <span class="fileinput-exists">Change</span>
+                    <input
+                      class="form-control"
+                      formControlName="image"
+                      type="file"
+                      name="image"
+                      (change)="upload2($event.target.files)"
+                    />
+                  </span>
+                  <a
+                    href="#pablo"
+                    class="btn btn-danger btn-round fileinput-exists"
+                    data-dismiss="fileinput"
+                    ><i class="fa fa-times"></i> Remove</a
+                  >
+                </div>
+                <h4 class="title">Image Cover</h4>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-9">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  name="title"
+                  type="text"
+                  formControlName="title"
+                  required="true"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-9">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  name="description"
+                  type="text"
+                  formControlName="description"
+                  required="true"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-sm-2 col-form-label">Body</label>
+            <div class="col-sm-9">
+              <div class="form-group">
+                <angular-editor formControlName="body" [config]="editorConfig"></angular-editor>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <label class="col-sm-2 col-form-label">Category </label>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <select
+                  class="selectpicker"
+                  name="category"
+                  formControlName="category"
+                  data-style="select-with-transition"
+                  required
+                >
+                  <option
+                    *ngFor="let category of categories"
+                    [ngValue]="category.id"
+                  >
+                    {{ category.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row" formArrayName="tags">
+            <label class="col-sm-2 col-form-label label-checkbox">Tags</label>
+            <div class="col-sm-10 checkbox-radios">
+              <div class="form-group">
+                <div class="form-check">
+                  <label
+                    class="form-check-label-inline col-3"
+                    *ngFor="let tag of tags; let i = index"
+                    [formGroupName]="i"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      formControlName="value"
+                    />
+                    {{ tag.name }}
+                    <span class="form-check-sign">
+                      <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <label class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-9">
+                <div class="form-group">
+                    <input class="form-control" name="created" type="datetime-local" formControlName="created" required="true" />
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="card-footer ml-auto mr-auto">
+          <button [disabled]="!form.valid" type="submit" class="btn btn-rose">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

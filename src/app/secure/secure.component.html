@@ -1,0 +1,47 @@
+<div class="wrapper" *ngIf="authenticated">
+  <div
+    class="sidebar"
+    data-color="rose"
+    data-background-color="black"
+    data-image="assets/img/sidebar-1.jpg"
+  >
+    <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  
+    Tip 2: you can also add an image using data-image tag-->
+    <div class="logo">
+      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        Logo
+      </a>
+      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        M'volais Group
+      </a>
+    </div>
+    <!-- Sidebar -->
+    <app-menu></app-menu>
+    <!-- End Sidebar-->
+  </div>
+
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-nav></app-nav>
+    <!-- End Navbar -->
+
+    <div class="content">
+      <div class="content">
+        <div class="container-fluid">
+          <router-outlet *ngIf="user"></router-outlet>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <app-footer></app-footer>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>

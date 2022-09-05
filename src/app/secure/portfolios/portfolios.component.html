@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">work</i>
+          </div>
+          <h4 class="card-title">
+            Liste des Portfolios
+            <div class="col-md-9 pull-right">
+              <a
+                routerLink="/portfolios/create"
+                class="btn btn-fill btn-rose pull-right"
+              >
+                <i class="material-icons">add</i>
+                Ajouter
+                <div class="ripple-container"></div
+              ></a>
+            </div>
+          </h4>
+        </div>
+        <div class="card-body table-full-width table-hover">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Descriptions</th>
+                <th>Dates</th>
+                <th>Actions</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let portfolio of portfolios">
+                  <td>
+                    <img [src]="portfolio.image" width="60" height="60" alt="..." />
+                  </td>
+                  <td>{{ portfolio.title }}</td>
+                  <td>{{ portfolio.description }}</td>
+                  <td>{{ portfolio.created | date: "d/M/yy" }}</td>
+                  <td class="td-actions">
+                    <!-- <button type="button" rel="tooltip" class="btn btn-info">
+                          <i class="material-icons">person</i>
+                        </button> -->
+                    <a
+                      type="button"
+                      [routerLink]="['/portfolio', portfolio.id, 'edit']"
+                      rel="tooltip"
+                      class="btn btn-info"
+                    >
+                      <i class="material-icons">edit</i>
+                    </a>
+                    <button
+                      type="button"
+                      rel="tooltip"
+                      (click)="delete(portfolio.id)"
+                      class="btn btn-danger"
+                    >
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer ml-auto mr-auto">
+        </div>
+      </div>
+    </div>
+  </div>
+  
